@@ -14,6 +14,8 @@ Technologies used
  8. CSS
  9. Javascript
  10. Amazon Elasticbeanstalk
+
+
 Functionalities
   1. WishList of products for offline usage
   2. Product Search using product name, zip code, categories, shipping
