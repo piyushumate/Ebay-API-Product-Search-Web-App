@@ -1,0 +1,55 @@
+.div-width {
+    width: 80%;
+    margin: auto;
+}
+
+.image-size {
+    width: 150px;
+    height: 150px;
+}
+
+
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+    background-color: white !important;
+    color: black !important;
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+    background-color: black !important;
+    color: white !important;
+}
+
+ngb-pagination ::ng-deep .page-link {
+    border: none !important;
+}
+
+ngb-pagination ::ng-deep .page-link:hover {
+    background-color: #ddd !important;
+    color: black !important;
+}
+
+.align-icon {
+    display: flex;
+}
+
+.remove-color {
+    color: #b1872f;
+}
+
+.padded-bottom {
+    padding-bottom: 5px;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) {
+    .div-width {
+        width: 100%;
+    }
+}
+
+.selected-prod-row {
+    background-color: #C7C8CA !important;
+}

@@ -1,0 +1,25 @@
+.div-width {
+    width: 80%;
+    margin: auto;
+}
+
+.image-width {
+    width: 150px;
+    height: 150px;
+}
+
+.align-icon {
+    display: flex;
+}
+
+.remove-color {
+    color: #b1872f;
+}
+
+.selected-prod-row {
+    background-color: #C7C8CA !important;
+}
+
+.padded-bottom {
+    padding-bottom: 5px;
+}

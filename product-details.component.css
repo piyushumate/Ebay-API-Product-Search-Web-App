@@ -1,0 +1,199 @@
+.container-align {
+    width: 80%;
+    margin: auto;
+}
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    background-color: black;
+}
+
+nav a {
+    color: black;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.product-details-table tr td {
+    width: 50%;
+}
+
+.seller-table tr td {
+    width: 50%;
+}
+
+.position-relative{
+    position: relative !important;
+}
+
+.percentage-value {
+    position: absolute;
+    top: 20px;
+    width: 42px;
+    text-align: center !important;
+}
+
+.sim-product-container {
+    padding: 2%;
+    margin-bottom: 1%;
+}
+
+.container {
+    /*margin-left: 1%;*/
+    padding-top: 2%;
+}
+
+.img-size {
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.similar-title {
+    color: #7ccad1;
+}
+
+.similar-price {
+    color: #6ec94f;
+}
+
+.similar-shipping {
+    color: #dda82d;
+}
+
+.similar-days {
+    color: #ffffff;
+}
+
+.margin-right {
+    margin-right: 2%;
+}
+
+.button-container {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.product-images {
+    color: #607a7b;
+    cursor: pointer;
+}
+
+.border-image {
+    border: solid black 10px ;
+}
+
+
+
+
+
+.gallery-row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+
+/* Create four equal columns that sits next to each other */
+.gallery-column {
+    -ms-flex: 33.33%; /* IE10 */
+    flex: 33.33%;
+    max-width: 33.33%;
+    padding: 0 4px;
+}
+
+.gallery-column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .gallery-column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .gallery-column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.nav-row {
+    margin: 0px;
+}
+
+.align-icon {
+    display: flex;
+}
+
+.fb-button {
+    height: auto;
+    width: 40px;
+}
+
+.remove-color {
+    color: #b1872f;
+}
+
+.nav-col {
+    padding: 0;
+}
+
+.search-results {
+    white-space: nowrap!important;
+}
+
+.sim-prod-nav:after {
+    content: 'Similar Products';
+}
+@media only screen and (max-width: 600px) {
+    .container-align {
+        width: 100%;
+    }
+
+
+    .sim-prod-nav:after {
+        content: 'Related';
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.3rem !important;
+    }
+
+    .margin-right {
+        margin-right: 0px;
+    }
+}
+
+
+.carousel-control-prev-icon {
+    background-color: black;
+}
+
+.carousel-control-next-icon {
+    background-color: black;
+}
+
+.seller_name {
+    text-align: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.error_message {
+    top: 20px;
+}

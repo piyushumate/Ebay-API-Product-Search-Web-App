@@ -1,0 +1,61 @@
+.align-icon {
+    display: flex;
+}
+
+.right-space {
+    margin-right: 10px;
+}
+
+.align-center {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.form-pad {
+    padding: 50px;
+}
+
+.asterisk {
+    color: red;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    background-image: none;
+}
+
+.div-width {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.nav-pills > li > a.active {
+    background-color: black !important;
+    color: white !important;
+}
+
+
+.nav-link-color {
+    color: black;
+}
+
+.center-nav {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .div-width {
+        width: 100%;
+    }
+
+    .form-pad {
+        padding: 0px;
+    }
+
+    .pad-top {
+        padding-top: 15px;
+    }
+}

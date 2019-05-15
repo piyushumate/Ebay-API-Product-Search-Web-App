@@ -1,0 +1,150 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<form class="bg-dark form-pad div-width" (ngSubmit)="onSubmit()" #productSearchForm="ngForm" novalidate>
+    <h3 class="text-white align-center pad-top"> Product Search </h3>
+    <div class="form-group row">
+        <label for="keyword" class="col-sm-2 col-form-label text-white">Keyword<span class="asterisk">&#42;</span></label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="keyword" required #keyword="ngModel"
+                   [class.is-invalid]="keyword.invalid && keyword.touched"
+                   placeholder="Enter Product Name (eg. iPhone 8)" name="keyword" [(ngModel)]="searchModel.keyword">
+            <div class="invalid-feedback">
+                Please enter a keyword
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="category" class="col-sm-2 col-form-label text-white">Category</label>
+        <div class="col-sm-4">
+            <select class="form-control" id="category" [(ngModel)]="searchModel.category" name="category" #category="ngModel">
+                <option *ngFor = "let category of categories" [ngValue] = "category">
+                    {{category.value}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2 col-form-label text-white">Condition</div>
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="new" name="new" [(ngModel)]="searchModel.condition.New" #new="ngModel">
+                <label class="form-check-label text-white" for="new">New</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="used" name="used" [(ngModel)]="searchModel.condition.Used" #used="ngModel">
+                <label class="form-check-label text-white" for="used">Used</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="unspecified" name="unspecified" [(ngModel)]="searchModel.condition.Unspecified" #unspecified="ngModel">
+                <label class="form-check-label text-white" for="unspecified">Unspecified</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-sm-2 col-form-label text-white">Shipping Options</div>
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pickup" name="pickup" [(ngModel)]="searchModel.shipping_options.LocalPickupOnly" #pickup="ngModel">
+                <label class="form-check-label text-white" for="pickup">Local Pickup</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="shipping" name="shipping" [(ngModel)]="searchModel.shipping_options.FreeShippingOnly" #shipping="ngModel">
+                <label class="form-check-label text-white" for="shipping">Free Shipping</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="distance" class="col-sm-2 col-form-label text-white">Distance (Miles)</label>
+        <div class="col-sm-4">
+            <input type="number" class="form-control" id="distance" placeholder="10" name="distance"
+                   [(ngModel)]="searchModel.distance" #distance="ngModel" min="1">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2 col-form-label text-white">From<span class="asterisk">&#42;</span></div>
+        <div class="col-sm-8">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="from" #from="ngModel" id="curr_location" value="curr_location" [(ngModel)]="searchModel.location">
+                <label class="form-check-label text-white" for="curr_location">
+                    Current Location
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="from" #from="ngModel" id="zip_code" value="zip_code" [(ngModel)]="searchModel.location">
+                <label class="form-check-label text-white" for="zip_code">
+                    Other. Please specify zip code:
+                </label>
+
+            </div>
+
+            <input matInput [matAutocomplete]="auto"
+                   name="zip_code_input" #zip_code_input="ngModel"
+                   [required]="searchModel.location ==='zip_code'"
+                   [(ngModel)]="searchModel.zip_code" (ngModelChange)="get_zip_codes()"
+                   [class.is-invalid]="zip_code_input.invalid && zip_code_input.touched"
+                   class="form-control" [disabled]="searchModel.location == 'curr_location'">
+
+
+            <mat-autocomplete #auto="matAutocomplete">
+                <ng-container *ngIf="searchModel.location ==='zip_code'">
+                    <mat-option *ngFor="let zip_code of zip_codes" [value]="zip_code">
+                        {{zip_code}}
+                    </mat-option>
+                </ng-container>
+            </mat-autocomplete>
+
+            <div class="invalid-feedback">
+                Please enter a zip code.
+            </div>
+            <!--</div>-->
+
+
+        </div>
+
+    </div>
+
+
+    <div class="btn-toolbar">
+        <button type="submit" [routerLink]="['/results']" [state]="request_json"
+                class="btn btn-light align-icon right-space"
+                [disabled]="productSearchForm.form.invalid || !zip_code || validate(searchModel)">
+            <i class="material-icons">search</i>
+            Search
+        </button>
+        <button type="button" class="btn btn-light align-icon" (click)="formReset(productSearchForm)">
+            <i class="material-icons">clear_all</i>Clear
+        </button>
+    </div>
+
+</form>
+
+<nav class="center-nav">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link nav-link-color" id="pills-home-tab" data-toggle="pill"
+               role="tab" aria-controls="pills-home" aria-selected="true" routerLink="/results"
+               [routerLinkActive]="['active']">
+                Results
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-color" id="pills-profile-tab" data-toggle="pill"
+               role="tab" aria-controls="pills-profile" aria-selected="false" routerLink="/wishlist"
+               [routerLinkActive]="['active']">
+                Wish List
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div [@routeAnimations]="prepareRoute(outlet)" >
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>
+
