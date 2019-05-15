@@ -2,3 +2,4 @@
 
 
 ![](giphy.gif)
+[link to Google!](http://google.com)
